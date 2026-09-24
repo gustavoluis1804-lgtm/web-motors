@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #e42313;
+  --color-brand-deep: #b31205;
+  --color-ink: #0a0a0b;
+  --color-elev: #111114;
+  --color-card: #17171b;
+  --color-paper: #f6f5f3;
+
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-marquee-slow: marquee 68s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 5s ease-in-out infinite;
+  --animate-scroll-hint: scrollHint 2.2s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-14px) translateX(-6px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes scrollHint {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.35;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* Slim dark scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a30;
+  border-radius: 8px;
+  border: 2px solid #0a0a0b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand);
+}
+
+/* Hero car fade mask */
+.mask-hero-car {
+  -webkit-mask-image: radial-gradient(ellipse 82% 88% at 50% 50%, #000 55%, transparent 78%);
+  mask-image: radial-gradient(ellipse 82% 88% at 50% 50%, #000 55%, transparent 78%);
+}
+
+/* Faint blueprint grid */
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.bg-blueprint-light {
+  background-image:
+    linear-gradient(rgba(10, 10, 11, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 11, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Outlined display text */
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.13);
+  color: transparent;
+}
+
+.text-outline-ink {
+  -webkit-text-stroke: 1.5px rgba(10, 10, 11, 0.14);
+  color: transparent;
+}
+
+/* Hide scrollbar utility for drag carousels */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
